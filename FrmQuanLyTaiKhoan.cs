@@ -199,8 +199,9 @@ namespace QuanLiDiemHocSinhTHCS
                 cboQuyen.Text = dr.Cells[2].Value.ToString();
                 if (dgvQLTaiKhoan.Columns[e.ColumnIndex].Name == "Delete")
                 {
+                    int maxoa = Convert.ToInt32(MaID.Text);
                     var dn = (from tk in db.TaiKhoans
-                              where (tk.ID == int.Parse(MaID.Text) && tk.Quyen == "Admin")
+                              where (tk.ID == maxoa && tk.Quyen == "Admin")
                               select tk).FirstOrDefault();
                     if (dn != null)
                     {
