@@ -32,7 +32,7 @@ namespace QuanLiDiemHocSinhTHCS
             this.label1 = new System.Windows.Forms.Label();
             this.tab = new System.Windows.Forms.TabControl();
             this.tbMon = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDiem = new System.Windows.Forms.DataGridView();
             this.cboMon = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabHS = new System.Windows.Forms.TabPage();
@@ -45,9 +45,18 @@ namespace QuanLiDiemHocSinhTHCS
             this.cboLop = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.MaHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemMieng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diemmieng2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diem15p1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diem15p2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diem45p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diemhk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemTB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab.SuspendLayout();
             this.tbMon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).BeginInit();
             this.tabHS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -73,29 +82,39 @@ namespace QuanLiDiemHocSinhTHCS
             this.tab.Location = new System.Drawing.Point(10, 172);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(1251, 482);
+            this.tab.Size = new System.Drawing.Size(1291, 482);
             this.tab.TabIndex = 6;
             // 
             // tbMon
             // 
-            this.tbMon.Controls.Add(this.dataGridView1);
+            this.tbMon.Controls.Add(this.dgvDiem);
             this.tbMon.Controls.Add(this.cboMon);
             this.tbMon.Controls.Add(this.label4);
             this.tbMon.Location = new System.Drawing.Point(4, 24);
             this.tbMon.Name = "tbMon";
             this.tbMon.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMon.Size = new System.Drawing.Size(1243, 454);
+            this.tbMon.Size = new System.Drawing.Size(1283, 454);
             this.tbMon.TabIndex = 0;
             this.tbMon.Text = "Xem theo môn";
             this.tbMon.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvDiem
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 65);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1205, 364);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHS,
+            this.HoTen,
+            this.DiemMieng,
+            this.Diemmieng2,
+            this.Diem15p1,
+            this.Diem15p2,
+            this.diem45p,
+            this.diemhk,
+            this.DiemTB});
+            this.dgvDiem.Location = new System.Drawing.Point(15, 65);
+            this.dgvDiem.Name = "dgvDiem";
+            this.dgvDiem.Size = new System.Drawing.Size(1262, 364);
+            this.dgvDiem.TabIndex = 6;
             // 
             // cboMon
             // 
@@ -105,6 +124,7 @@ namespace QuanLiDiemHocSinhTHCS
             this.cboMon.Name = "cboMon";
             this.cboMon.Size = new System.Drawing.Size(136, 23);
             this.cboMon.TabIndex = 5;
+            this.cboMon.SelectedIndexChanged += new System.EventHandler(this.cboMon_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -124,7 +144,7 @@ namespace QuanLiDiemHocSinhTHCS
             this.tabHS.Location = new System.Drawing.Point(4, 24);
             this.tabHS.Name = "tabHS";
             this.tabHS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHS.Size = new System.Drawing.Size(1243, 454);
+            this.tabHS.Size = new System.Drawing.Size(1283, 454);
             this.tabHS.TabIndex = 1;
             this.tabHS.Text = "Xem theo học sinh";
             this.tabHS.UseVisualStyleBackColor = true;
@@ -214,11 +234,65 @@ namespace QuanLiDiemHocSinhTHCS
             this.label2.TabIndex = 9;
             this.label2.Text = "Chọn lớp";
             // 
+            // MaHS
+            // 
+            this.MaHS.FillWeight = 130F;
+            this.MaHS.HeaderText = "Mã học sinh";
+            this.MaHS.Name = "MaHS";
+            // 
+            // HoTen
+            // 
+            this.HoTen.HeaderText = "Tên học sinh";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.Width = 200;
+            // 
+            // DiemMieng
+            // 
+            this.DiemMieng.HeaderText = "Điểm miệng 1";
+            this.DiemMieng.Name = "DiemMieng";
+            this.DiemMieng.Width = 130;
+            // 
+            // Diemmieng2
+            // 
+            this.Diemmieng2.HeaderText = "Điểm miệng 2";
+            this.Diemmieng2.Name = "Diemmieng2";
+            this.Diemmieng2.Width = 130;
+            // 
+            // Diem15p1
+            // 
+            this.Diem15p1.HeaderText = "Điểm 15p 1";
+            this.Diem15p1.Name = "Diem15p1";
+            this.Diem15p1.Width = 130;
+            // 
+            // Diem15p2
+            // 
+            this.Diem15p2.HeaderText = "Điểm 15p 2";
+            this.Diem15p2.Name = "Diem15p2";
+            this.Diem15p2.Width = 130;
+            // 
+            // diem45p
+            // 
+            this.diem45p.HeaderText = "Điểm giữa kỳ";
+            this.diem45p.Name = "diem45p";
+            this.diem45p.Width = 130;
+            // 
+            // diemhk
+            // 
+            this.diemhk.HeaderText = "Điểm cuối kỳ";
+            this.diemhk.Name = "diemhk";
+            this.diemhk.Width = 130;
+            // 
+            // DiemTB
+            // 
+            this.DiemTB.HeaderText = "Điểm TB học kỳ";
+            this.DiemTB.Name = "DiemTB";
+            this.DiemTB.Width = 150;
+            // 
             // FrmThongKeDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 666);
+            this.ClientSize = new System.Drawing.Size(1313, 666);
             this.Controls.Add(this.cbohk);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboNamHoc);
@@ -234,7 +308,7 @@ namespace QuanLiDiemHocSinhTHCS
             this.tab.ResumeLayout(false);
             this.tbMon.ResumeLayout(false);
             this.tbMon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.tabHS.ResumeLayout(false);
             this.tabHS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -248,7 +322,7 @@ namespace QuanLiDiemHocSinhTHCS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.TabPage tbMon;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDiem;
         private System.Windows.Forms.ComboBox cboMon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabHS;
@@ -261,5 +335,14 @@ namespace QuanLiDiemHocSinhTHCS
         private System.Windows.Forms.ComboBox cboLop;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiemMieng;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diemmieng2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diem15p1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diem15p2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diem45p;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diemhk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiemTB;
     }
 }
