@@ -46,6 +46,7 @@ namespace QuanLiDiemHocSinhTHCS
                 main.quyen = la[0].ToString();
                 main.Tag = myMain;
                 main.magv = id[0];
+                
                 main.Show();
             }
             else

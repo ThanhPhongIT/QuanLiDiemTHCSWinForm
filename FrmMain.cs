@@ -39,6 +39,8 @@ namespace QuanLiDiemHocSinhTHCS
             get { return _magv; }
             set { _magv = value; }
         }
+        
+
         public FrmMain()
         {
             InitializeComponent();
@@ -81,6 +83,7 @@ namespace QuanLiDiemHocSinhTHCS
                 {
                     qltaikhoan = new FrmQuanLyTaiKhoan();
                     qltaikhoan.MdiParent = this;
+                    
                     qltaikhoan.Tag = truyendl;
                     qltaikhoan.Show();
                 }
@@ -106,6 +109,8 @@ namespace QuanLiDiemHocSinhTHCS
             {
                 giaovien = new FrmGiaoVien();
                 giaovien.MdiParent = this;
+                giaovien.TenDangNhap = taikhoan;
+                giaovien.Quyen = quyen;
                 giaovien.Tag = truyendl;
                 giaovien.Show();
             }
@@ -187,6 +192,11 @@ namespace QuanLiDiemHocSinhTHCS
         }
 
         private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
